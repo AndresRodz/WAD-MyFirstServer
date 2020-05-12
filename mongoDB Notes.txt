@@ -1,0 +1,42 @@
+TABLES = Collections
+ROWS = Documents
+
+//Run mongo server from console
+mongod
+brew services start mongodb-community
+
+//Use the mongo shell
+mongo
+
+//Display all databases
+show dbs
+
+CREATE DATABASE databaseName;
+use databaseName
+
+CREATE TABLE tableName {
+    id INTEGER PRIMARY KEY NOT NULL,
+    name TEXT NOT NULL
+};
+db.collectionName
+
+INSERT INTO tableName
+VALUES(123, 'Marcel);
+db.collectionName.insert({id:123,name:'Marcel'})
+db.collectionName.insertOne({id:123,name:'Marcel'})
+
+SELECT *
+FROM tableName
+WHERE condition
+db.collectionName.find({condition}).pretty();
+
+UPDATE tableName
+SET values
+WHERE condition
+db.collectionName.update({condition}, {$set:{values}});
+db.collectionName.updateOne({condition}, {$set:{values}});
+
+DELETE
+FROM tableName
+WHERE condition
+db.collectionName.remove({condition});
