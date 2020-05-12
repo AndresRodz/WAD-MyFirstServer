@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const validateToken = require('./middleware/validateToken');
 const cors = require('./middleware/cors');
 const {Students} = require('./models/studentModel');
+const {DATABASE_URL, PORT} = require( './config' );
 
 const app = express();
 const jsonParser = bodyParser.json();
@@ -197,7 +198,7 @@ app.delete('api/removeStudent', (req, res) => {
     }
 });
 
-app.listen(8000, () => {
+app.listen(PORT, () => {
     console.log("This server is running on port 8000");
 
     new Promise((resolve, reject) => {
